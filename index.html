@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>상품에 하버 시 가장자기 테두리가 애니메이션 </title>
+    <style>
+        .box{width: 300px; height: 300px; background-color: #eacf15; position: relative;}
+        .box::after, .box::before, .inbox::after, .inbox::before{
+            content: "";
+            display: block;
+            position: absolute;
+            background-color: #000;
+            transition: 0.5s;
+        }
+        .box:hover:after, .box:hover:before, .inbox:hover:after, .inbox:hover:before{
+            transition: 0.1s;
+        }
+        .box::after, .box::before{
+            width: 10px;
+            height: 0;
+        }
+        .box::after{
+            bottom: 0;
+            right: 0;
+        }
+        .box::before{
+            top: 0;
+            left: 0;
+        }
+        .box:hover::before, .box:hover::after{
+            height: 100%;
+        }
+        .inbox{
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .inbox::after, .inbox::before{
+            height: 10px;
+            width: 0;
+        }
+        .inbox::after{
+            bottom: 0;
+            right: 0;
+        }
+        .inbox::before{
+            top: 0;
+            left: 0;
+        }
+        .inbox:hover::before, .inbox:hover::after{
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="inbox">
+            나에게 손을 올려보세요
+        </div>
+    </div>
+</body>
+</html>
